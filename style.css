@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,700;1,100;1,200;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,700;1,100;1,200;1,400&display=swap");
+
+body{
+    position: relative;
+}
+:root {
+    --main-color: #eaa023;
+    --dark: #fff;
+    --dark-light: #191f3a;
+    /* --white: blue;
+    --white-light:#c8c8c8; */
+    --shadow: 0 0 15px rgba(0,0,0,0.25);
+    --cursive-font:"Dancing Script", cursive;
+
+}
+#About{
+    border: 2px outset springgreen;
+}
+#menu{
+    opacity: 0.5;
+}
+.menu-item{
+    float: left;
+    margin: 10px;
+    width: 300px;
+    height: 200px;
+    text-align: center;
+}
+.menu-item img{
+    width: 200px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    color: var(--white-light);
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+.container {
+    max-width: 1170px;
+    /* background-color: red; */
+    margin: auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.header-padding {
+    padding: 12px 0;
+}
+.justify-content-between
+{
+    justify-content: space-between;
+}
+.min-h-100 {
+    min-height: 100vh;
+}
+.section-padding {
+    padding: 80px 0;
+}
+.section-title {
+    width: 100%;
+    text-align: center;
+    padding: 6px 0;
+}
+.section-title h2 {
+    font-size: 35px;
+    text-transform: uppercase;
+}
+.section-title h2::before {
+    content: attr(data-title);
+    display: block;
+    font-size: 24px;
+    color: var(--main-color);
+    font-family: var(--cursive-font);
+    font-weight: 400;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    margin-top: 30px;
+}
+.header {
+    /* padding: 12px 0; */
+    /* background-color: var(--dark-light); */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}
+.header::before {
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    display: block;
+    background-color: var(--dark-light);
+    z-index: -1;
+    transform: translateY(-100%);
+    transition: all 0.5s ease;
+}
+.header.sticky::before {
+    transform: translateY(0%);
+    opacity: 0.8;
+}
+.nav-toggler {
+    width: 44px;
+    height: 34px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.nav-toggler.active {
+    position: absolute ;
+    z-index: 1;
+    right: 0;
+    transition: all 0.5s ease;
+    transform: translateX(-200px);
+}
+.nav-toggler.active span {
+    background-color: transparent;
+}
+.nav-toggler.active span::before {
+    transform: rotate(135deg);
+}
+.nav-toggler.active span::after {
+    transform: rotate(-135deg);
+}
+.nav-toggler span {
+    display: block;
+    height: 2px;
+    width: 30px;
+    background-color: var(--main-color);
+    position: relative;
+
+}
+.nav-toggler span::before {
+    display: block;
+    content:"";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateY(-8px);
+    background-color: var(--main-color);
+    transition: all 0.3s ease;
+}
+.nav-toggler span::after {
+    display: block;
+    content:"";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateY(8px);
+    background-color: var(--main-color);
+    transition: all 0.3s ease;
+}
+
+.nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background-color:var(--dark-light);
+    padding: 80px 30px 40px;
+    transition: 0.5s ease;
+    transform: translateX(100%);
+    /* overflow-y: auto; */
+}
+.nav.open {
+    transform: translateX(0%);
+}
+.nav ul li a {
+    color: var(--white);
+    font-size: 25px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    transition:  0.3s ease;
+
+}
+.nav ul li a:hover {
+    color: var(--main-color);
+}
+.nav ul li {
+    margin-bottom: 10px;
+}
+/* Home-section */
+.home-section {
+    /* background-color: var(--main-color); */
+    position: relative;
+    overflow: hidden;
+}
+@keyframes ZoomInout {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+
+}
+.home-section .home-section-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("image/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -2;
+    animation: ZoomInout 20s infinite;
+
+}
+
+.home-section .home-section-bg::before {
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: var(--dark);
+    opacity: 0.3;
+}
+.home-section .home-text {
+    margin: auto;
+    max-width: 500px;
+    text-align: center;
+}
+.home-section .home-text h1 {
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 75px;
+    font-family: var(--cursive-font);
+}
+.home-section .home-text p {
+    font-weight: 900;
+    font-size: 25px;
+}
+.section-title h2{
+    font-size: 45px;
+    display: block;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+.section-title h2::before{
+    content: attr(data-title);
+    display: block;
+}
+.about .about-item img {
+    width: 100%;
+}
+.about-item{
+    width: calc(100%/2);
+}
+.section-title{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.food-item {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+
+}
+.footer-item{
+    margin-right: 50px;
+}
+.testimony-img img{
+    margin: auto;
+    width: 30%;
+    height: auto;
+}
+.testimony-img{
+    margin: 0 auto;
+}
+iframe{
+    width: 1190px;
+    height: 900px;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px gray;
+    overflow: hidden;
+}
+#truocmenu{
+    margin-bottom: 20px;
+}
